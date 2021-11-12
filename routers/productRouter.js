@@ -3,12 +3,12 @@ const Model = require('../models/productModel');
 
 
 router.post( '/add', (req, res) => {
-
+    console.log(req.body)
     new Model(req.body).save()
     .then( () => {
-        console.log('user data added');
+        console.log('product data added');
         res.status(200).json({ message : 'success' })
-    })
+    })  
     .catch( (err) => {
         console.error(err);
         res.status(500).json(err);
